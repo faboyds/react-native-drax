@@ -64,6 +64,7 @@ const DraxListUnforwarded = <T extends unknown>(
 		itemStyles,
 		renderItemContent,
 		renderItemHoverContent,
+		wrapItemsWithDraxView,
 		onItemDragStart,
 		onItemDragPositionChange,
 		onItemDragEnd,
@@ -694,7 +695,7 @@ const DraxListUnforwarded = <T extends unknown>(
 					{...flatListProps}
 					style={flatListStyle}
 					ref={setFlatListRefs}
-					renderItem={renderItem}
+					renderItem={wrapItemsWithDraxView ? renderItem : renderItemContent}
 					onScroll={onScroll}
 					onContentSizeChange={onContentSizeChange}
 					data={reorderedData}
